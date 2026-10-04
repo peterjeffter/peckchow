@@ -5,30 +5,30 @@ const JUICES = ["Orange Juice","Apple Juice","Tigernut Drink","Watermelon Juice"
 const CHICKEN = ["Grilled chicken","Fried chicken"];
 // img = photo file inside the "images" folder. Remove or leave out img to show the emoji instead.
 const MENU = [
-  {id:16,n:"Small Chops Package",e:"🎉",img:"images/smallchops.jpeg",p:12000,c:"Packages",d:"10 puff puff, 1 chicken piece, 7 samosa, 7 spring roll + any juice of your choice.",
+  {id:16,n:"Small Chops Package",e:"🎉",img:"Images/smallchops.jpeg",p:12000,c:"Packages",d:"10 puff puff, 1 chicken piece, 7 samosa, 7 spring roll + any juice of your choice.",
     ch:[{l:"Chicken piece",o:CHICKEN},{l:"Choose your juice",o:JUICES}]},
 
-  {id:18,n:"Burger & chips Package",e:"🍔",img:"images/burgerandchips.jpeg",p:6000,c:"Packages",d:"Large burger, Large chips + any juice of your choice.",
+  {id:18,n:"Burger & chips Package",e:"🍔",img:"Images/burgerandchips.jpeg",p:6000,c:"Packages",d:"Large burger, Large chips + any juice of your choice.",
     ch:[{l:"Choose your juice",o:JUICES}]},
 
-  {id:17,n:"Chips & Chicken Combo",e:"🍟",img:"images/chickenandchips.jpeg",p:7000,c:"Packages",d:"Hot crispy chips + chicken + any drink of your choice.",
+  {id:17,n:"Chips & Chicken Combo",e:"🍟",img:"Images/chickenandchips.jpeg",p:7000,c:"Packages",d:"Hot crispy chips + chicken + any drink of your choice.",
     ch:[{l:"Chicken",o:CHICKEN},{l:"Choose your drink",o:JUICES}]},
-  {id:1,n:"Chicken",e:"🍗",img:"images/roastedchicken.webp",p:3500,c:"Fast Food",d:"Juicy chicken, your way: grilled or fried.",
+  {id:1,n:"Chicken",e:"🍗",img:"Images/roastedchicken.webp",p:3500,c:"Fast Food",d:"Juicy chicken, your way: grilled or fried.",
     ch:[{l:"Choose your chicken",o:CHICKEN}]},
-  {id:2,n:"Puff Puff",e:"🍩",img:"images/puff.jpeg",p:1000,c:"Small Chops",d:"Soft, golden and sweet. Pack of 10."},
-  {id:3,n:"Samosa",e:"🥟",img:"images/samosa.jpeg",p:1500,c:"Small Chops",d:"Crispy pastry with seasoned filling. Pack of 5."},
-  {id:4,n:"Spring Roll",e:"🌯",img:"images/springroll.jpg",p:1500,c:"Small Chops",d:"Crunchy rolls with veggie &amp; meat filling. Pack of 5."},
-  {id:5,n:"Burger",e:"🍔",img:"images/burger.jpg",p:3000,c:"Fast Food",d:"Beef patty, cheese, veggies &amp; special sauce."},
-  {id:6,n:"Shawarma",e:"🥙",img:"images/shawarma.jpg",p:3500,c:"Fast Food",d:"Loaded chicken shawarma with creamy sauce."},
-  {id:7,n:"Corn Dog",e:"🌭",img:"images/corndog.png",p:1500,c:"Fast Food",d:"Sausage in golden cornmeal batter."},
-  {id:8,n:"Hot Dog",e:"🌭",img:"images/hotdog.jpg",p:2000,c:"Fast Food",d:"Grilled sausage in a soft bun."},
-  {id:9,n:"Chips",e:"🍟",img:"images/chips.jpg",p:2000,c:"Sides",d:"Hot, crispy fries with pepper sauce."},
-  {id:10,n:"Orange Juice",e:"🍊",img:"images/orangejuice.jpeg",p:1200,c:"Juices",d:"Freshly squeezed and chilled."},
-  {id:11,n:"Apple Juice",e:"🍎",img:"images/applejuice.jpeg",p:1200,c:"Juices",d:"Crisp, sweet and refreshing."},
-  {id:12,n:"Tigernut Drink",e:"🥛",img:"images/tigernut.jpeg",p:1200,c:"Juices",d:"Creamy, naturally sweet tigernut (kunun aya)."},
-  {id:13,n:"Watermelon Juice",e:"🍉",img:"images/watermelon.jpeg",p:1200,c:"Juices",d:"Cool, fresh watermelon blend."},
-  {id:14,n:"Pineapple Juice",e:"🍍",img:"images/pineapple.jpeg",p:1200,c:"Juices",d:"Sweet and tangy pineapple."},
-  {id:15,n:"Zobo",e:"🍹",img:"images/zobo.jpeg",p:1000,c:"Juices",d:"Chilled hibiscus drink with ginger &amp; spice."}
+  {id:2,n:"Puff Puff",e:"🍩",img:"Images/puff.jpeg",p:1000,c:"Small Chops",d:"Soft, golden and sweet. Pack of 10."},
+  {id:3,n:"Samosa",e:"🥟",img:"Images/samosa.jpeg",p:1500,c:"Small Chops",d:"Crispy pastry with seasoned filling. Pack of 5."},
+  {id:4,n:"Spring Roll",e:"🌯",img:"Images/springroll.jpg",p:1500,c:"Small Chops",d:"Crunchy rolls with veggie &amp; meat filling. Pack of 5."},
+  {id:5,n:"Burger",e:"🍔",img:"Images/burger.jpg",p:3000,c:"Fast Food",d:"Beef patty, cheese, veggies &amp; special sauce."},
+  {id:6,n:"Shawarma",e:"🥙",img:"Images/shawarma.jpg",p:3500,c:"Fast Food",d:"Loaded chicken shawarma with creamy sauce."},
+  {id:7,n:"Corn Dog",e:"🌭",img:"Images/corndog.png",p:1500,c:"Fast Food",d:"Sausage in golden cornmeal batter."},
+  {id:8,n:"Hot Dog",e:"🌭",img:"Images/hotdog.jpg",p:2000,c:"Fast Food",d:"Grilled sausage in a soft bun."},
+  {id:9,n:"Chips",e:"🍟",img:"Images/chips.jpg",p:2000,c:"Sides",d:"Hot, crispy fries with pepper sauce."},
+  {id:10,n:"Orange Juice",e:"🍊",img:"Images/orangejuice.jpeg",p:1200,c:"Juices",d:"Freshly squeezed and chilled."},
+  {id:11,n:"Apple Juice",e:"🍎",img:"Images/applejuice.jpeg",p:1200,c:"Juices",d:"Crisp, sweet and refreshing."},
+  {id:12,n:"Tigernut Drink",e:"🥛",img:"Images/tigernut.jpeg",p:1200,c:"Juices",d:"Creamy, naturally sweet tigernut (kunun aya)."},
+  {id:13,n:"Watermelon Juice",e:"🍉",img:"Images/watermelon.jpeg",p:1200,c:"Juices",d:"Cool, fresh watermelon blend."},
+  {id:14,n:"Pineapple Juice",e:"🍍",img:"Images/pineapple.jpeg",p:1200,c:"Juices",d:"Sweet and tangy pineapple."},
+  {id:15,n:"Zobo",e:"🍹",img:"Images/zobo.jpeg",p:1000,c:"Juices",d:"Chilled hibiscus drink with ginger &amp; spice."}
 ];
 // ======================
 const $=id=>document.getElementById(id);
