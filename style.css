@@ -191,7 +191,7 @@ footer{border-top:1px solid var(--line)}
 .hero.has-slides h1 em{color:#f3cf8a}
 .hero.has-slides p{color:rgba(255,255,255,.88)}
 .hero.has-slides .badges{border-top-color:rgba(255,255,255,.3)}
-.hero.has-slides .badge{color:#fff}
+.hero.has-slides .badge{color:black}
 .hero.has-slides .btn:hover{background:#fff;color:var(--brand);border-color:#fff}
 
 
