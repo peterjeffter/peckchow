@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>PeckChow</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <div class="logo"><img src="images/peckchow.png"> Peck<span>Chow</span> Express</div>
+  <nav>
+    <button class="btn alt" onclick="openM('info')">About</button>
+    <button class="btn" onclick="openM('cart')">🛒 Cart (<span id="cc">0</span>)</button>
+  </nav>
+</header>
+
+<section class="hero" id="hero">
+  <div class="hero-bg" id="heroBg"></div>
+  <h1>Fresh, hot &amp; <em>delivered to you</em></h1>
+  <p>Pick your favourites, place your order and pay when it arrives at your door.</p>
+  <button class="btn" onclick="document.getElementById('menu').scrollIntoView({behavior:'smooth'})">Order now</button>
+  <div class="badges"><span class="badge">Pay on delivery</span><span class="badge">Freshly made</span><span class="badge">Home delivery</span></div>
+</section>
+
+<main id="menu">
+  <div class="tabs" id="tabs"></div>
+  <div class="grid" id="grid"></div>
+</main>
+
+<footer>© PeckChow Express · Pay on delivery only</footer>
+
+<button class="btn fab" id="fab" onclick="openM('cart')" style="display:none">🛒 View cart · <span id="ft">₦0</span></button>
+
+<!-- Cart popup -->
+<div class="modal" id="m-cart" onclick="bg(event,'cart')"><div class="sheet">
+  <button class="x" onclick="closeM('cart')">×</button>
+  <h2>Your cart</h2>
+  <div id="cartBody"></div>
+</div></div>
+
+<!-- Checkout popup -->
+<div class="modal" id="m-checkout" onclick="bg(event,'checkout')"><div class="sheet">
+  <button class="x" onclick="closeM('checkout')">×</button>
+  <h2>Delivery details</h2>
+  <label for="f-name">Full name</label><input id="f-name" autocomplete="name" placeholder="e.g. Amina Bello">
+  <label for="f-phone">Phone number</label><input id="f-phone" type="tel" autocomplete="tel" placeholder="e.g. 0803 000 0000">
+  <label for="f-addr">Delivery address</label><textarea id="f-addr" rows="2" placeholder="Street, area, landmark"></textarea>
+  <label for="f-note">Notes (optional)</label><input id="f-note" placeholder="e.g. extra pepper, no onions">
+  <div class="note">💵 <b>Payment on delivery.</b> You pay cash or transfer when your order arrives.</div>
+  <div class="total"><span>Total</span><span id="ck-total"></span></div>
+  <div class="err" id="err">Please fill in your name, phone number and address.</div>
+  <button class="btn" style="width:100%" onclick="placeOrder()">Place order</button>
+</div></div>
+
+<!-- Confirmation popup -->
+<div class="modal" id="m-done" onclick="bg(event,'done')"><div class="sheet">
+  <button class="x" onclick="closeM('done')">×</button>
+  <h2>✅ Almost done!</h2>
+  <p>Your order <b id="oid"></b> is ready. Tap the button below to send it to us on WhatsApp so we can start preparing it.</p>
+  <div id="sum" style="font-size:.9rem;color:var(--mute);margin-bottom:12px"></div>
+  <a id="wa" class="btn wa" style="display:block;text-align:center;text-decoration:none" target="_blank" rel="noopener">Send order on WhatsApp</a>
+  <button class="btn alt" style="width:100%;margin-top:10px" onclick="finish()">Done</button>
+</div></div>
+
+<!-- About popup -->
+<div class="modal" id="m-info" onclick="bg(event,'info')"><div class="sheet">
+  <button class="x" onclick="closeM('info')">×</button>
+  <h2>About PeckChow</h2>
+  <p>We make fresh small chops, snacks and drinks for parties, offices and everyday cravings.</p>
+  <p>📞 <b id="ph"></b><br>🕘 Open daily, 9am – 9pm<br>💵 Payment on delivery only</p>
+  <button class="btn" onclick="closeM('info')">Start ordering</button>
+</div></div>
+
+
+
+  <!-- Choose options popup -->
+<div class="modal" id="m-pick" onclick="bg(event,'pick')"><div class="sheet">
+  <button class="x" onclick="closeM('pick')">×</button>
+  <h2 id="pk-title">Choose</h2>
+  <div id="pk-body"></div>
+  <button class="btn" style="width:100%;margin-top:22px" onclick="confirmPick()">Add to cart</button>
+</div></div>
+
+<script src="script.js"></script>
+</body>
+</html>
