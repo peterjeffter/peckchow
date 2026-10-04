@@ -205,6 +205,7 @@ footer{border-top:1px solid var(--line)}
 .qty button:disabled:hover{border-color:var(--line);color:var(--ink)}
 
 .logo img{
-  width: 100px;
+  max-width: 100px;
+  min-width: 40px;
   
 }
