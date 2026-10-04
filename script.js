@@ -142,7 +142,7 @@ renderTabs();renderMenu();upd();
 
 // ===== Hero slideshow =====
 // Put your photos in an "images" folder next to index.html and list them here.
-const HERO_SLIDES = ["images/samosa.jpeg","images/puff.jpeg","images/shawarma.jpg","images/roastedchicken.webp"];
+const HERO_SLIDES = ["Images/samosa.jpeg","Images/puff.jpeg","Images/shawarma.jpg","Images/roastedchicken.webp"];
 const HERO_SECONDS = 5;
 (function(){
   const hero=$("hero"),box=$("heroBg");
