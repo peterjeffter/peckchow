@@ -38,7 +38,8 @@ nav{display:flex;gap:10px;align-items:center}
 .btn:disabled{opacity:.5}
 
 /* ===== Hero ===== */
-.hero{padding:88px 24px 56px;text-align:center;max-width:760px;margin:auto}
+.hero{padding:88px 24px 56px;text-align:center;  width: 95vw; justify-self: center
+      ; max-width:760px;margin:auto}
 .hero::before{content:"Freshly made · Delivered to your door";display:block;font-size:.72rem;letter-spacing:.28em;text-transform:uppercase;color:var(--brand);margin-bottom:22px}
 .hero h1{font-family:var(--serif);font-weight:500;font-size:clamp(2.4rem,6vw,4rem);line-height:1.08;margin:0 0 18px;letter-spacing:-.01em}
 .hero h1 em{font-style:italic;color:var(--brand)}
@@ -92,7 +93,7 @@ footer{text-align:center;color:var(--mute);font-size:.7rem;letter-spacing:.16em;
 
 /* ===== Colour layer ===== */
 body{background:linear-gradient(180deg,var(--wash) 0,var(--bg) 560px) no-repeat,var(--bg)}
-header{background:var(--bg);border-bottom:3px solid transparent;border-image:linear-gradient(90deg,var(--a1),var(--a2),var(--a3),var(--a4)) 1}
+header{background:var(--bg);}
 .hero::before{color:var(--gold);font-weight:600}
 .hero h1 em{color:var(--brand)}
 .badges{border-top:1px solid var(--line)}
