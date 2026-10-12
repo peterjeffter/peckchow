@@ -248,3 +248,11 @@ footer{border-top:1px solid var(--line)}
   .card h3,.card p,.card .row{margin-left:10px;margin-right:10px}
   .emo:has(img){height:130px}
 }
+
+
+/* ===== Search & contact ===== */
+.search{max-width:480px;margin:0 auto 20px}
+.search input{border-radius:99px;padding-left:18px}
+.ct-links{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px;padding-top:16px;border-top:1px solid var(--line)}
+.ct-links .btn{flex:1;display:inline-flex;align-items:center;justify-content:center;text-decoration:none;text-align:center}
+footer a{color:inherit}
