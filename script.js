@@ -1,6 +1,7 @@
 // ===== EDIT THESE =====
 const WHATSAPP = "2347045670173";   // your WhatsApp number, country code first, no + or spaces
 const PHONE_DISPLAY = "0704 567 0173";
+const ORDERS_URL = "PASTE_YOUR_WEB_APP_URL_HERE";   // Google Apps Script web app URL (used by the contact form)
 const JUICES = ["Orange Juice","Apple Juice","Tigernut Drink","Watermelon Juice","Pineapple Juice","Zobo"];
 const CHICKEN = ["Grilled chicken","Fried chicken"];
 // img = photo file inside the "images" folder. Remove or leave out img to show the emoji instead.
@@ -54,8 +55,14 @@ function saveCart(){
 }
 
 $("ph").textContent=PHONE_DISPLAY;
+$("c-call").href="tel:+"+WHATSAPP;
+$("c-wa").href="https://wa.me/"+WHATSAPP;
 
-function openM(k){if(k==="cart")renderCart();$("m-"+k).classList.add("open")}
+function openM(k){
+  if(k==="cart")renderCart();
+  if(k==="contact"){$("ct-form").style.display="block";$("ct-done").style.display="none"}
+  $("m-"+k).classList.add("open");
+}
 function closeM(k){$("m-"+k).classList.remove("open")}
 function bg(e,k){if(e.target.classList.contains("modal"))closeM(k)}
 document.addEventListener("keydown",e=>{
@@ -64,16 +71,24 @@ document.addEventListener("keydown",e=>{
 
 function renderTabs(){
   const cats=["All",...new Set(MENU.map(m=>m.c))];
-  $("tabs").innerHTML=cats.map(c=>`<button class="tab ${c===cat?"on":""}" onclick="cat='${c}';renderTabs();renderMenu()">${c}</button>`).join("");
+  $("tabs").innerHTML=cats.map(c=>`<button class="tab ${c===cat?"on":""}" onclick="cat='${c}';$('q').value='';renderTabs();renderMenu()">${c}</button>`).join("");
 }
+const norm=s=>String(s).replace(/&amp;/g,"&").toLowerCase();
 function renderMenu(){
-  $("grid").innerHTML=MENU.filter(m=>cat==="All"||m.c===cat).map(m=>`
+  const q=norm($("q").value.trim());
+  const list=MENU.filter(m=>q?norm(m.n+" "+m.d+" "+m.c).includes(q):(cat==="All"||m.c===cat));
+  $("grid").innerHTML=list.length?list.map(m=>`
   <div class="card">
     <div class="emo">${m.tag?`<span class="tag">${m.tag}</span>`:""}${m.img?`<img src="${m.img}" alt="${m.n}" loading="lazy" onerror="this.replaceWith('${m.e}')">`:m.e}</div>
     <h3>${m.n}</h3><p>${m.d}</p>
     <div class="row"><span class="price">${fmt(m.p)}</span><button class="btn" onclick="add(${m.id})">${m.ch?"Choose +":"Add +"}</button></div>
-  </div>`).join("");
+  </div>`).join(""):
+  `<div class="empty" style="grid-column:1/-1">No dishes match your search.<br>Try another word, or <a href="#" onclick="openM('contact');return false" style="color:var(--brand)">ask us</a>.</div>`;
 }
+$("q").addEventListener("input",()=>{
+  if($("q").value.trim()&&cat!=="All"){cat="All";renderTabs()}   // search looks at the whole menu
+  renderMenu();
+});
 let pickId=null;
 function add(id){
   const m=MENU.find(x=>x.id===id);
@@ -178,3 +193,19 @@ const HERO_SECONDS = 5;
   document.addEventListener("keydown",e=>{if(e.key==="Escape")setNav(false)});
   window.matchMedia("(min-width:601px)").addEventListener("change",e=>{if(e.matches)setNav(false)});
 })();
+
+// ===== Contact form =====
+async function sendContact(){
+  const name=$("c-name").value.trim(),contact=$("c-contact").value.trim(),msg=$("c-msg").value.trim();
+  const err=$("c-err"),btn=$("c-send");
+  if($("c-website").value)return;                       // bot trap
+  if(!name||!contact||!msg){err.textContent="Please fill in your name, how to reach you, and your message.";err.style.display="block";return}
+  err.style.display="none";btn.disabled=true;btn.textContent="Sending…";
+  try{
+    await fetch(ORDERS_URL,{method:"POST",mode:"no-cors",headers:{"Content-Type":"text/plain;charset=utf-8"},
+      body:JSON.stringify({type:"contact",name,contact,message:msg})});
+    $("ct-form").style.display="none";$("ct-done").style.display="block";
+    ["c-name","c-contact","c-msg"].forEach(i=>$(i).value="");
+  }catch(e){err.textContent="No connection. Please try again.";err.style.display="block"}
+  finally{btn.disabled=false;btn.textContent="Send message"}
+}
