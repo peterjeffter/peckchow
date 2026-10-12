@@ -13,6 +13,7 @@
   <div class="logo"><img src="Images/logo1.png" alt=""> </div>
   <nav id="nav">
     <button class="btn alt" onclick="openM('info')">About</button>
+    <button class="btn alt" onclick="openM('contact')">Contact</button>
     <button class="btn" onclick="openM('cart')">🛒 Cart (<span id="cc">0</span>)</button>
   </nav>
   <button class="burger" id="burger" aria-label="Menu" aria-expanded="false" aria-controls="nav">
@@ -29,11 +30,14 @@
 </section>
 
 <main id="menu">
+  <div class="search">
+    <input id="q" type="search" placeholder="🔍 Search the menu…" autocomplete="off" aria-label="Search the menu">
+  </div>
   <div class="tabs" id="tabs"></div>
   <div class="grid" id="grid"></div>
 </main>
 
-<footer>© PeckChow Express · Pay on delivery only</footer>
+<footer>© PeckChow Express · Pay on delivery only · <a href="#" onclick="openM('contact');return false">Contact us</a></footer>
 
 <button class="btn fab" id="fab" onclick="openM('cart')" style="display:none">🛒 View cart · <span id="ft">₦0</span></button>
 
@@ -74,7 +78,30 @@
   <h2>About PeckChow</h2>
   <p>We make fresh small chops, snacks and drinks for parties, offices and everyday cravings.</p>
   <p>📞 <b id="ph"></b><br>🕘 Open daily, 9am – 9pm<br>💵 Payment on delivery only</p>
-  <button class="btn" onclick="closeM('info')">Start ordering</button>
+  <button class="btn" onclick="closeM('info')">Order now</button>
+</div></div>
+
+<!-- Contact popup -->
+<div class="modal" id="m-contact" onclick="bg(event,'contact')"><div class="sheet" role="dialog" aria-modal="true">
+  <button class="x" onclick="closeM('contact')" aria-label="Close">×</button>
+  <h2>Contact us</h2>
+  <div id="ct-form">
+    <p>Questions, feedback or a big party order? Send us a message and we'll get back to you.</p>
+    <label for="c-name">Your name</label><input id="c-name" autocomplete="name">
+    <label for="c-contact">Phone or email</label><input id="c-contact" placeholder="So we can reply">
+    <label for="c-msg">Message</label><textarea id="c-msg" rows="4"></textarea>
+    <input id="c-website" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px">
+    <div class="err" id="c-err"></div>
+    <button class="btn" id="c-send" style="width:100%;margin-top:16px" onclick="sendContact()">Send message</button>
+  </div>
+  <div id="ct-done" style="display:none">
+    <p>✅ Message sent. Thank you! We'll reply as soon as we can.</p>
+    <button class="btn alt" style="width:100%" onclick="closeM('contact')">Close</button>
+  </div>
+  <div class="ct-links">
+    <a class="btn alt" id="c-call" href="#">📞 Call us</a>
+    <a class="btn alt" id="c-wa" href="#" target="_blank" rel="noopener">💬 WhatsApp</a>
+  </div>
 </div></div>
 
 
