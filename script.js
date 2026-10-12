@@ -5,7 +5,7 @@ const JUICES = ["Orange Juice","Apple Juice","Tigernut Drink","Watermelon Juice"
 const CHICKEN = ["Grilled chicken","Fried chicken"];
 // img = photo file inside the "images" folder. Remove or leave out img to show the emoji instead.
 const MENU = [
-  {id:16,n:"Small Chops Package",e:"🎉",img:"Images/smallchops.jpeg",p:12000,c:"Packages",d:"10 puff puff, 1 chicken piece, 7 samosa, 7 spring roll + any juice of your choice.",
+  {id:16,n:"Small Chops Package", tag:"Best seller", e:"🎉",img:"Images/smallchops.jpeg",p:12000,c:"Packages",d:"10 puff puff, 1 chicken piece, 7 samosa, 7 spring roll + any juice of your choice.",
     ch:[{l:"Chicken piece",o:CHICKEN},{l:"Choose your juice",o:JUICES}]},
 
   {id:18,n:"Burger & chips Package",e:"🍔",img:"Images/burgerandchips.jpeg",p:6000,c:"Packages",d:"Large burger, Large chips + any juice of your choice.",
@@ -69,7 +69,7 @@ function renderTabs(){
 function renderMenu(){
   $("grid").innerHTML=MENU.filter(m=>cat==="All"||m.c===cat).map(m=>`
   <div class="card">
-    <div class="emo">${m.img?`<img src="${m.img}" alt="${m.n}" loading="lazy" onerror="this.replaceWith('${m.e}')">`:m.e}</div>
+    <div class="emo">${m.tag?`<span class="tag">${m.tag}</span>`:""}${m.img?`<img src="${m.img}" alt="${m.n}" loading="lazy" onerror="this.replaceWith('${m.e}')">`:m.e}</div>
     <h3>${m.n}</h3><p>${m.d}</p>
     <div class="row"><span class="price">${fmt(m.p)}</span><button class="btn" onclick="add(${m.id})">${m.ch?"Choose +":"Add +"}</button></div>
   </div>`).join("");
