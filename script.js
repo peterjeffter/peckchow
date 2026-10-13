@@ -24,6 +24,10 @@ const MENU = [
   {id:7,n:"Corn Dog",e:"🌭",img:"Images/corndog.png",p:1500,c:"Fast Food",d:"Sausage in golden cornmeal batter."},
   {id:8,n:"Hot Dog",e:"🌭",img:"Images/hotdog.jpg",p:2000,c:"Fast Food",d:"Grilled sausage in a soft bun."},
   {id:9,n:"Chips",e:"🍟",img:"Images/chips.jpg",p:2000,c:"Sides",d:"Hot, crispy fries with pepper sauce."},
+
+     {id:8,n:"Jollof rice",e:"🌭",img:"Images/rice.png",p:3000,c:"Fast Food",d:"Tasty jollof rice."},
+ 
+  
   {id:10,n:"Orange Juice",e:"🍊",img:"Images/orangejuice.jpeg",p:1200,c:"Juices",d:"Freshly squeezed and chilled."},
   {id:11,n:"Apple Juice",e:"🍎",img:"Images/applejuice.jpeg",p:1200,c:"Juices",d:"Crisp, sweet and refreshing."},
   {id:12,n:"Tigernut Drink",e:"🥛",img:"Images/tigernut.jpeg",p:1200,c:"Juices",d:"Creamy, naturally sweet tigernut (kunun aya)."},
@@ -208,4 +212,4 @@ async function sendContact(){
     ["c-name","c-contact","c-msg"].forEach(i=>$(i).value="");
   }catch(e){err.textContent="No connection. Please try again.";err.style.display="block"}
   finally{btn.disabled=false;btn.textContent="Send message"}
-}
+    }
